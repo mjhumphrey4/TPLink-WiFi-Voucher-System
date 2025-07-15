@@ -1,0 +1,1081 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+}
+
+.body {
+    height: 100%;
+    width: 100%;
+    background-color: #1b6c07;
+    position: relative;
+    overflow: auto;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.layer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+.form {
+    position: relative;
+    margin: 20px 0;
+    width: 90%;
+    max-width: 480px;
+    text-align: center;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.heading {
+    color: #1a4c78;
+    font-size: 24px;
+    margin: 0 0 25px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.form .signup-form {
+    display: none;
+}
+
+.input {
+    width: 100%;
+    padding: 15px;
+    background: #f8f8f8;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.input:focus {
+    color: #333;
+    outline: none;
+    border: 1px solid #1a4c78;
+    box-shadow: 0 0 5px rgba(26, 76, 120, 0.3);
+}
+
+button {
+    width: 100%;
+    padding: 0 20px;
+    line-height: 50px;
+    background: #1b6c07;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
+}
+
+button:hover {
+    background-color: #0c3457;
+}
+
+.form .input-box {
+    margin-top: 30px;
+}
+
+.form .togglebtn {
+    color: #1a4c78;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+::-webkit-input-placeholder {
+    color: #999;
+    font-size: 15px;
+}
+
+:-moz-placeholder {
+    color: #999;
+    font-size: 15px;
+}
+
+::-moz-placeholder {
+    color: #999;
+    font-size: 15px;
+}
+
+:-ms-input-placeholder {
+    color: #999;
+    font-size: 15px;
+}
+
+#oper-hint {
+    display: block;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Table Styles */
+#customers {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#customers td, #customers th {
+    border: 1px solid #e0e0e0;
+    padding: 12px 15px;
+    text-align: center;
+}
+
+#customers tr:nth-child(even) {
+    background-color: #f7f9fc;
+}
+
+#customers tr:hover {
+    background-color: #edf2f7;
+}
+
+#customers th {
+    padding: 15px;
+    text-align: center;
+    background-color: #1b6c07;
+    color: white;
+    font-weight: 600;
+}
+
+/* Footer and additional content styles */
+.footer {
+    text-align: center;
+    color: white;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.footer a {
+    color: #a3d4ff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+marquee {
+    padding: 10px 0;
+    color: #0c3457;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .form {
+        width: 95%;
+        padding: 25px 20px;
+    }
+    
+    #customers {
+        max-width: 95%;
+    }
+    
+    .heading {
+        font-size: 22px;
+    }
+    
+    button {
+        font-size: 15px;
+    }
+}
+
+#input-phone-num {
+    display: flex;
+    gap: 5px;
+}
+
+#country-code {
+    width: 60px;
+    padding: 15px 10px;
+    background: #f8f8f8;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    color: #333;
+    font-size: 16px;
+}
+
+#phone-number {
+    flex: 1;
+}
+
+#input-verify-code {
+    display: flex;
+    gap: 10px;
+}
+
+#verify-code {
+    flex: 1;
+}
+
+#get-code {
+    width: auto;
+    white-space: nowrap;
+    margin-bottom: 20px;
+}
+
+#hotspot-selector {
+    width: 100%;
+    padding: 15px;
+    background: #f8f8f8;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 16px;
+    -webkit-appearance: menulist;
+    appearance: menulist;
+}
+
+// Payment Style elements
+
+.payment-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.payment-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.payment-header h3 {
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.payment-header p {
+    opacity: 0.9;
+    font-size: 0.9em;
+}
+
+.payment-options {
+    padding: 20px;
+}
+
+.payment-option {
+    position: relative;
+    margin-bottom: 15px;
+    cursor: pointer;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.payment-option:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+}
+
+.payment-option.selected {
+    border-color: #667eea;
+    background-color: #f8f9ff;
+}
+
+.payment-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.payment-content {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+
+.payment-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-weight: bold;
+    color: white;
+    font-size: 1.2em;
+}
+
+.mtn-icon {
+    background: linear-gradient(135deg, #ffcc00 0%, #ff9900 100%);
+}
+
+.airtel-icon {
+    background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+}
+
+.payment-info {
+    flex: 1;
+}
+
+.payment-name {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 3px;
+}
+
+.payment-desc {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.payment-option.selected .checkmark {
+    background-color: #667eea;
+    border-color: #667eea;
+}
+
+.payment-option.selected .checkmark::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.continue-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.continue-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+.continue-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.selected-payment {
+    margin-top: 15px;
+    padding: 10px;
+    background: #f0f8ff;
+    border-radius: 6px;
+    border-left: 4px solid #667eea;
+    display: none;
+}
+
+.selected-payment.show {
+    display: block;
+}
+
+@media (max-width: 480px) {
+    .payment-container {
+        margin: 20px auto;
+        max-width: 95%;
+    }
+    
+    .payment-content {
+        padding: 12px;
+    }
+    
+    .payment-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1em;
+    }
+}
+
+</style>
+
+<!-- Display the error message -->
+<div style="text-align: center; padding: 10px;">
+    <span id="oper-hint" style="color: red"></span>
+</div>
+
+<div id="hotspot-section">
+    <select id="hotspot-selector"></select>
+</div>
+
+<div class="body">
+    <div id="particles-js"></div>
+    <div class="layer">
+        <div class="form">
+            <div class="login-form">
+                <div class="heading">Enter your Voucher to access the Bite Tech Systems WiFi</div>
+                <div class="input-box">
+                    <form id="login-form">
+                        <!-- voucher code input box -->
+                        <div id="input-voucher">
+                            <input id="voucherCode" class="input" name="voucherCode" type="text" placeholder="Your Voucher Code" required/>
+                        </div>
+                        
+                        <!-- The username input box for Local User 、External RADIUS、 RADIUS -->
+                        <div id="input-user">
+                            <input id="username" class="input" name="username" type="text" placeholder="Username"/>
+                        </div>
+                        <!-- The password input box for Local User 、External RADIUS、 RADIUS -->
+                        <div id="input-password" class="user-input">
+                            <input id="password" class="input" name="password" type="password" placeholder="Password"/>
+                        </div>
+                        <!-- The password input box for Simple password -->
+                        <div id="input-simple">
+                            <input id="simplePassword" class="input" name="simplePassword" type="password" placeholder="Password"/>
+                        </div>
+                        <!-- The drop-down box of country code and phone number input box for SMS -->
+                        <div id="input-phone-num">
+                            <input id="country-code" type="text" value="">
+                            <input id="phone-number" class="input" name="phone-number" type="text" placeholder="Phone Number"/>
+                        </div>
+                        <!-- The inputbox and button for SMS verification code -->
+                        <div id="input-verify-code">
+                            <input id="verify-code" class="input" name="verify-code" type="text" placeholder="Verification Code"/>
+                            <button id="get-code" type="button">Get Code</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div id="button-area">
+                    <!-- The button for facebook. Click to open the interface of Facebook authentication -->
+                    <button id="button-facebook">Facebook</button>
+                    <!-- The login button for all authentication types except the Facebook authentication -->
+                    <button id="button-login" type="submit" class="submit">Log in to WiFi</button>
+                    
+                    <marquee>Buy a Voucher at Authorized outlets at the following rates:</marquee>
+                </div>
+                
+                <table id="customers">
+                    <tbody>
+                        <tr>
+                            <th>Voucher</th>
+                            <th>Price</th>
+                        </tr>
+                        <tr>
+                            <td>12 hours</td>
+                            <td>1,000/=</td>
+                        </tr>
+                        <tr>
+                            <td>24 hours</td>
+                            <td>2,000/=</td>
+                        </tr>
+                        <tr>
+                            <td>1 Week</td>
+                            <td>10,000/=</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    <div class="payment-container">
+        <div class="payment-header">
+            <h3>Choose Payment Method</h3>
+            <p>Select your preferred mobile money option</p>
+        </div>
+        
+        <div class="payment-options">
+            <div class="payment-option" onclick="selectPayment('mtn')">
+                <input type="radio" name="payment" value="mtn" id="mtn">
+                <div class="payment-content">
+                    <div class="payment-icon mtn-icon">MTN</div>
+                    <div class="payment-info">
+                        <div class="payment-name">MTN Mobile Money</div>
+                        <div class="payment-desc">Pay with MTN Momo Pay</div>
+                    </div>
+                    <div class="checkmark"></div>
+                </div>
+            </div>
+            
+            <div class="payment-option" onclick="selectPayment('airtel')">
+                <input type="radio" name="payment" value="airtel" id="airtel">
+                <div class="payment-content">
+                    <div class="payment-icon airtel-icon">AIRTEL</div>
+                    <div class="payment-info">
+                        <div class="payment-name">Airtel Money</div>
+                        <div class="payment-desc">Pay with Airtel Money Pay</div>
+                    </div>
+                    <div class="checkmark"></div>
+                </div>
+            </div>
+            
+            <div class="selected-payment" id="selectedPayment">
+                <strong>Selected:</strong> <span id="selectedMethod"></span>
+            </div>
+            
+            <button class="continue-btn" id="continueBtn" disabled onclick="proceedWithPayment()">
+                Continue
+            </button>
+        </div>
+    </div>
+                      
+
+
+        <div class="footer">
+            <p>(c) 2025 <a href="https://bitetechsystem.com">Bite Tech Systems.</a></p>
+            <p>Your reliable electrical solutions provider, pay with a voucher or mobile money</p>
+        </div>
+    </div>
+</div>
+
+<!-- Particles.js for animated background -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    // Particles.js Configuration
+    document.addEventListener('DOMContentLoaded', function() {
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    });
+
+    //This is the utility function. Please do not delete.
+    var Ajax = {
+        post: function (url, data, fn) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 304)) {
+                    fn.call(this, xhr.responseText);
+                }
+            };
+            xhr.send(data);
+        }
+    };
+    //This is the utility function. Please do not delete.
+    function getQueryStringKey (key) {
+        return getQueryStringAsObject()[key];
+    }
+    //This is the utility function. Please do not delete.
+    function getQueryStringAsObject () {
+        var b, cv, e, k, ma, sk, v, r = {},
+            d = function (v) { return decodeURIComponent(v); },
+            q = window.location.search.substring(1),
+            s = /([^&;=]+)=?([^&;]*)/g
+        ;
+        ma = function(v) {
+            if (typeof v != "object") {
+                cv = v;
+                v = {};
+                v.length = 0;
+                if (cv) { Array.prototype.push.call(v, cv); }
+            }
+            return v;
+        };
+        while (e = s.exec(q)) {
+            b = e[1].indexOf("[");
+            v = d(e[2]);
+            if (b < 0) {
+                k = d(e[1]);
+                if (r[k]) {
+                    r[k] = ma(r[k]);
+                    Array.prototype.push.call(r[k], v);
+                }
+                else {
+                    r[k] = v;
+                }
+            }
+            else {
+                k = d(e[1].slice(0, b));
+                sk = d(e[1].slice(b + 1, e[1].indexOf("]", b)));
+                r[k] = ma(r[k]);
+                if (sk) { r[k][sk] = v; }
+                else { Array.prototype.push.call(r[k], v); }
+            }
+        }
+        return r;
+    }
+
+    var data = {};
+    var globalConfig = {};
+    var submitUrl;
+    var clientMac = getQueryStringKey("clientMac");
+    var apMac = getQueryStringKey("apMac");
+    var gatewayMac = getQueryStringKey("gatewayMac") || undefined;
+    var ssidName = getQueryStringKey("ssidName") || undefined;
+    var radioId = !!getQueryStringKey("radioId")? Number(getQueryStringKey("radioId")) : undefined;
+    var vid = !!getQueryStringKey("vid")? Number(getQueryStringKey("vid")) : undefined;
+    var originUrl = getQueryStringKey("originUrl");
+    var previewSite = getQueryStringKey("previewSite");
+
+    var hotspotMap = {
+        3: "Voucher Access",
+        5: "Local User Access",
+        6: "SMS Access",
+        8: "RADIUS Access"
+    };
+    //error code
+    var errorHintMap = {
+        "0": "ok",
+        "-1": "General error.",
+        "-41500": "Invalid authentication type.",
+        "-41501": "Failed to authenticate.",
+        "-41502": "Wrong voucher code, Please check the values again",
+        "-41503": "This voucher code is expired, please get a new one",
+        "-41504": "The traffic used by this voucher code has reached the limit.",
+        "-41505": "This Voucher has reached the maximum allowed users limit.",
+        "-41506": "Invalid authorization information.",
+        "-41507": "Your authentication times out. You can get authenticated again until the next day.",
+        "-41508": "The traffic used by this local user has reached the limit.",
+        "-41512": "This local user is expired.",
+        "-41513": "This local user is disabled.",
+        "-41514": "Incorrect MAC address.",
+        "-41516": "The number of users has reached the limit.",
+        "-41517": "Incorrect password.",
+        "-41518": "This SSID does not exist.",
+        "-41519": "Invalid code.",
+        "-41520": "The code is expired.",
+        "-41521": "This Voucher has reached the maximum allowed number of users.",
+        "-41522": "Failed to validate the code.",
+        "-41523": "Failed to send verification code.",
+        "-41524": "Authentication failed because the username does not exsit.",
+        "-41525": "Authentication failed because of the wrong password.",
+        "-41526": "Authentication failed because the client is invalid.",
+        "-41527": "Authentication failed because the local user is invalid."
+    };
+
+    //The redirect address when customer select Facebook authentication
+    var facebookUrl = !!apMac? ('/portal/fbwifi/forward?clientMac='+encodeURIComponent(clientMac)+'&apMac='+encodeURIComponent(apMac)+'&ssidName='+encodeURIComponent(ssidName)+'&radioId='+encodeURIComponent(radioId)+'&originUrl='+encodeURIComponent(originUrl))
+        : ('/portal/fbwifi/forward?clientMac='+encodeURIComponent(clientMac)+'&gatewayMac='+encodeURIComponent(gatewayMac)+'&vid='+encodeURIComponent(vid)+'&originUrl='+encodeURIComponent(originUrl));
+
+    var isCommited;
+
+    Ajax.post(
+        '/portal/getPortalPageSetting',
+        JSON.stringify({
+            "clientMac": clientMac,
+            "apMac": apMac,
+            "gatewayMac": gatewayMac,
+            "ssidName": ssidName,
+            "radioId": radioId,
+            "vid": vid,
+            "originUrl": originUrl
+        }),
+        function (res) {
+            res = JSON.parse(res);
+            data = res.result;
+            submitUrl           = "/portal/auth";
+            var landingUrl  = data.landingUrl;
+            isCommited          = false;
+            globalConfig = {
+                authType: data.authType,
+                hotspotTypes: !!data.hotspot && data.hotspot.enabledTypes || [],
+                error         : data.error || 'ok',
+                countryCode   : !!data.sms && data.sms.countryCode || 1
+            };
+            function pageConfigParse(){
+                if (res.errorCode !== 0){
+                    document.getElementById("oper-hint").style.display = "block";
+                    document.getElementById("oper-hint").innerHTML = errorHintMap[res.errorCode];
+                }
+                //This is the initialized authentication interface. It will hide all authentication options at first. Determine the displayed interface according to the selected authentication type.
+                document.getElementById("hotspot-section").style.display = "none";
+                document.getElementById("input-voucher").style.display = "none";
+                document.getElementById("input-user").style.display = "none";
+                document.getElementById("input-password").style.display = "none";
+                document.getElementById("input-simple").style.display = "none";
+                document.getElementById("input-phone-num").style.display = "none";
+                document.getElementById("input-verify-code").style.display = "none";
+                document.getElementById("button-facebook").style.display = "none";
+                switch (globalConfig.authType){
+                    case 0://No Authentication: Login directly without any options.
+                        window.authType = 0;
+                        break;
+                    case 1://Simple Password: Display the password input box.
+                        document.getElementById("input-simple").style.display = "block";
+                        window.authType = 1;
+                        break;
+                    case 2://External RADIUS Server: Display a username input box and password input box. 
+                        hotspotChang(2);
+                        window.authType = 2;
+                        break;
+                    case 7://Facebookacebook: Display a button for facebook authentication. 
+                        document.getElementById("button-facebook").style.display = "block";
+                        document.getElementById("button-facebook").addEventListener("click", function () {
+                            window.location.href = facebookUrl;
+                        });
+                        document.getElementById("button-login").style.display = "none";
+                        window.authType = 7;
+                        break;
+                    case 11:
+                        // Hotspot: It can contain Voucher Access，Local User Access，SMS Access，RADIUS Access.
+                        // There is s drop-down box to select the authentication method. 
+                        var options = "";
+                        for (var i=0;i<globalConfig.hotspotTypes.length;i++) {
+                            options += '<option value="'+globalConfig.hotspotTypes[i]+'">'+hotspotMap[globalConfig.hotspotTypes[i]]+'</option>';
+                        }
+                        if (globalConfig.hotspotTypes.length > 1) {
+                            document.getElementById("hotspot-section").style.display = "block";
+                        }
+                        document.getElementById("hotspot-selector").innerHTML = options;
+                        hotspotChang(globalConfig.hotspotTypes[0]);
+                        window.authType = globalConfig.hotspotTypes[0];
+                        break;
+                }
+            }
+
+            function handleSubmit(){
+                var submitData = {};
+                submitData['authType'] = window.authType;
+                switch (window.authType){
+                    case 3:
+                        submitData['voucherCode'] = document.getElementById("voucherCode").value;
+                        break;
+                    case 5:
+                        submitData['localuser'] = document.getElementById("username").value;
+                        submitData['localuserPsw'] = document.getElementById("password").value;
+                        break;
+                    case 1:
+                        submitData['simplePassword'] = document.getElementById("simplePassword").value;
+                        break;
+                    case 0:
+                        break;
+                    case 6:
+                        submitData['phone'] = document.getElementById("country-code").value + document.getElementById("phone-number").value;
+                        submitData['code'] = document.getElementById("verify-code").value;
+                        break;
+                    case 2:
+                    case 8:
+                        submitData['username'] = document.getElementById("username").value;
+                        submitData['password'] = document.getElementById("password").value;
+                        break;
+                    default:
+                        break;
+                }
+
+                if(isCommited == false){
+                    submitData['clientMac'] = clientMac;
+                    submitData['apMac'] = apMac;
+                    submitData['gatewayMac'] = gatewayMac;
+                    submitData['ssidName'] = ssidName;
+                    submitData['radioId'] = radioId;
+                    submitData['vid'] = vid;
+                    if(window.authType == 2 || window.authType == 8){
+                        submitUrl = "/portal/radius/auth";
+                        submitData['authType'] = window.authType;
+                    } else {
+                        submitData['originUrl'] = originUrl;
+                    }
+                    function doAuth () {
+                        Ajax.post(submitUrl, JSON.stringify(submitData).toString(), function(data){
+                            data = JSON.parse(data);
+                            if(!!data && data.errorCode === 0) {
+                                isCommited = true;
+                                window.location.href = landingUrl;
+                                document.getElementById("oper-hint").innerHTML = errorHintMap[data.errorCode];
+                            } else{
+                                document.getElementById("oper-hint").innerHTML = errorHintMap[data.errorCode];
+                            }
+                        });
+                    }
+                    doAuth();
+                }
+            }
+            function hotspotChang (type) {
+                //The way to deal with Hotspot.It contains Voucher Access，Local User Access，SMS Access，RADIUS Access.
+                //It will hide all hotspot authentication methods at first. Then determine the displayed interface according to the selected authentication method.
+                document.getElementById("input-voucher").style.display = "none";
+                document.getElementById("input-user").style.display = "none";
+                document.getElementById("input-password").style.display = "none";
+                document.getElementById("input-phone-num").style.display = "none";
+                document.getElementById("input-verify-code").style.display = "none";
+                document.getElementById("button-login").style.display = "block";
+                window.authType = type;
+                switch (Number(type)) {
+                    case 3://voucher: Display a voucher code input box.
+                        document.getElementById("input-voucher").style.display = "block";
+                        break;
+                    case 5://Local User
+                    case 2://External RADIUS
+                    case 8://RADIUS
+                        //The above three methods will display username input box and password input box.
+                        document.getElementById("input-user").style.display = "block";
+                        document.getElementById("input-password").style.display = "block";
+                        break;
+                    case 6:
+                        //SMS: Display a drop-down box for selecting country code, a phone number input box, a verification code input box, and a button to send authentication email.
+                        //You need to input the phone number to get the authentication email containing the verification code then input the verification code.
+                        document.getElementById("input-phone-num").style.display = "block";
+                        document.getElementById("input-verify-code").style.display = "block";
+                        break;
+                }
+            }
+            globalConfig.countryCode = "+" + parseInt(globalConfig.countryCode, 10);
+            document.getElementById("country-code").value = parseInt(globalConfig.countryCode, 10);
+            document.getElementById("hotspot-selector").addEventListener("change", function () {
+                var obj = document.getElementById("hotspot-selector");
+                var opt = obj.options[obj.selectedIndex];
+                hotspotChang(opt.value);
+            });
+            document.getElementById("button-login").addEventListener("click", handleSubmit);
+            document.getElementById("get-code").addEventListener("click", function(e){
+                e.preventDefault();
+                var phoneNum = document.getElementById("phone-number").value;
+                function sendSmsAuthCode () {
+                    Ajax.post("/portal/sendSmsAuthCode",
+                        JSON.stringify({
+                            clientMac: clientMac,
+                            apMac: apMac,
+                            gatewayMac: gatewayMac,
+                            ssidName: ssidName,
+                            radioId: radioId,
+                            vid: vid,
+                            phone: "+" + document.getElementById("country-code").value + phoneNum
+                        }),function(data){
+                            data = JSON.parse(data);
+                            if(data.errorCode !== 0){
+                                document.getElementById("oper-hint").innerHTML = errorHintMap[data.errorCode];
+                            } else {
+                                document.getElementById("oper-hint").innerHTML = "SMS has been sent successfully.";
+                            }
+                        }
+                    );
+                }
+                sendSmsAuthCode();
+                document.getElementById("oper-hint").innerHTML = "Sending Authorization Code...";
+            });
+            pageConfigParse();
+        }
+    );
+</script>
+
+    <script>
+        let selectedPaymentMethod = null;
+
+        function selectPayment(method) {
+            // Remove previous selection
+            document.querySelectorAll('.payment-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Add selection to clicked option
+            document.querySelector(`#${method}`).parentElement.classList.add('selected');
+            document.querySelector(`#${method}`).checked = true;
+            
+            // Update selected payment method
+            selectedPaymentMethod = method;
+            
+            // Show selected payment info
+            const selectedDiv = document.getElementById('selectedPayment');
+            const selectedMethod = document.getElementById('selectedMethod');
+            
+            if (method === 'mtn') {
+                selectedMethod.textContent = 'MTN Mobile Money';
+            } else if (method === 'airtel') {
+                selectedMethod.textContent = 'Airtel Money';
+            }
+            
+            selectedDiv.classList.add('show');
+            
+            // Enable continue button
+            document.getElementById('continueBtn').disabled = false;
+        }
+
+        function proceedWithPayment() {
+            if (!selectedPaymentMethod) {
+                alert('Please select a payment method first.');
+                return;
+            }
+            
+       
+            // Different USSD codes for different providers
+            let ussdCode;
+            if (selectedPaymentMethod === 'mtn') {
+                ussdCode = '*165*3*1234%23'; // *165*3*1234#
+            } else if (selectedPaymentMethod === 'airtel') {
+                ussdCode = '*185**9*1234%23'; // *185**9*1234#
+            }
+            
+            try {
+                // Open phone dialer with the appropriate USSD code
+                window.location.href = `tel:${ussdCode}`;
+            } catch (error) {
+                // Fallback for browsers that don't support tel: protocol
+                console.log('Phone dialer not supported');
+                const originalCode = selectedPaymentMethod === 'mtn' ? '*165*3*1234#' : '*185**9*1234#';
+                alert(`Please dial ${originalCode} on your phone to complete the payment.`);
+            }
+
+        }
+
+        // Optional: Add keyboard support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !document.getElementById('continueBtn').disabled) {
+                proceedWithPayment();
+            }
+        });
+    </script>
