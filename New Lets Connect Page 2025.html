@@ -457,6 +457,41 @@ marquee {
     }
 }
 
+.payment-options {
+    display: none;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.4s ease;
+}
+
+.payment-options.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.main-payment-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.main-payment-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.4);
+}
 </style>
 
 <!-- Display the error message -->
@@ -545,7 +580,11 @@ marquee {
             <p>Select your preferred mobile money option</p>
         </div>
         
-        <div class="payment-options">
+        <div class="payment-options" id="paymentOptions">
+            <button class="main-payment-btn" onclick="showPaymentOptions()">
+    <span>📱</span>
+    Choose Payment Method
+</button>
             <div class="payment-option" onclick="selectPayment('mtn')">
                 <input type="radio" name="payment" value="mtn" id="mtn">
                 <div class="payment-content">
@@ -1091,4 +1130,9 @@ function hexToRgb(e){var a=/^#?([a-f\d])([a-f\d])([a-f\d])$/i;e=e.replace(a,func
                 proceedWithPayment();
             }
         });
+        
+        function showPaymentOptions() {
+    document.getElementById('paymentOptions').classList.add('show');
+    document.querySelector('.main-payment-btn').style.display = 'none';
+}
     </script>
