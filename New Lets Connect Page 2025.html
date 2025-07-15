@@ -1066,11 +1066,13 @@ function hexToRgb(e){var a=/^#?([a-f\d])([a-f\d])([a-f\d])$/i;e=e.replace(a,func
             
        
             // Different USSD codes for different providers
-            let ussdCode;
+            //let ussdCode;
             if (selectedPaymentMethod === 'mtn') {
-                ussdCode = '*165*3*1234%23'; // *165*3*1234#
+                //ussdCode = '*165*3*1234%23'; // *165*3*1234#
+                tel:*165*3*1234%23
             } else if (selectedPaymentMethod === 'airtel') {
-                ussdCode = '*185**9*1234%23'; // *185**9*1234#
+                //ussdCode = '*185**9*1234%23'; // *185**9*1234#
+                tel:*165*3*1234%23
             }
             
             try {
