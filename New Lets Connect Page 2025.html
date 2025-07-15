@@ -474,7 +474,7 @@ marquee {
         <div class="form">
             
             <div class="login-form">
-                <div class="heading">Welcome Home, please enter your Key to Unlock</div>
+                <div class="heading">Enter your Voucher to access the Bite Tech Systems WiFi</div>
                 <div class="input-box">
                     <form id="login-form">
                         <!-- voucher code input box -->
@@ -586,8 +586,8 @@ marquee {
         </div>
         
         <div class="footer">
-            <p>(c) 2025 <a href="https://stkconsults.com">STK Consults.</a></p>
-            <p>If you experience any challenges, Please contact the Network Administrator at STK Consults</p>
+            <p>(c) 2025 <a href="https://bitetechsystem.com">Bite Tech Systems.</a></p>
+            <p>Your reliable electrical solutions provider, pay with a voucher or mobile money</p>
         </div>
     </div>
 </div>
@@ -1066,13 +1066,11 @@ function hexToRgb(e){var a=/^#?([a-f\d])([a-f\d])([a-f\d])$/i;e=e.replace(a,func
             
        
             // Different USSD codes for different providers
-            //let ussdCode;
+            let ussdCode;
             if (selectedPaymentMethod === 'mtn') {
-                //ussdCode = '*165*3*1234%23'; // *165*3*1234#
-                tel:*165*3*1234%23
+                ussdCode = '*165*3*1234%23'; // *165*3*1234#
             } else if (selectedPaymentMethod === 'airtel') {
-                //ussdCode = '*185**9*1234%23'; // *185**9*1234#
-                tel:*165*3*1234%23
+                ussdCode = '*185**9*1234%23'; // *185**9*1234#
             }
             
             try {
