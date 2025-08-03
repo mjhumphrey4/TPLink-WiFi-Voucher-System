@@ -471,7 +471,9 @@ marquee {
 }
 
 .main-payment-btn {
-    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    /* width: 100%; */
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
@@ -481,7 +483,7 @@ marquee {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin: 20px;
+    /* margin: 20px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -491,6 +493,12 @@ marquee {
 .main-payment-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 25px rgba(102, 126, 234, 0.4);
+}
+
+.bite-tech-logo {
+    width: 20px;
+    height: 20px;
+    align-items: center;
 }
 </style>
 
@@ -507,7 +515,6 @@ marquee {
     <div id="particles-js"></div>
     <div class="layer">
         <div class="form">
-            
             <div class="login-form">
                 <div class="heading">Enter your Voucher to access the Bite Tech Systems WiFi</div>
                 <div class="input-box">
@@ -574,17 +581,13 @@ marquee {
           </tbody>
         </table>
 				                    
-    <div class="payment-container">
-        <div class="payment-header">
-            <h3>Choose Payment Method</h3>
-            <p>Select your preferred mobile money option</p>
-        </div>
+         
+        <button class="main-payment-btn" onclick="showPaymentOptions()">
+    <span>📱</span>
+    Pay with Mobile Money
+</button>
         
         <div class="payment-options" id="paymentOptions">
-            <button class="main-payment-btn" onclick="showPaymentOptions()">
-    <span>📱</span>
-    Choose Payment Method
-</button>
             <div class="payment-option" onclick="selectPayment('mtn')">
                 <input type="radio" name="payment" value="mtn" id="mtn">
                 <div class="payment-content">
@@ -623,12 +626,8 @@ marquee {
                 
             </div>
         </div>
-        
-        <div class="footer">
-            <p>(c) 2025 <a href="https://bitetechsystem.com">Bite Tech Systems.</a></p>
-            <p>Your reliable electrical solutions provider, pay with a voucher or mobile money</p>
-        </div>
     </div>
+    
 </div>
 
 <!-- Particles.js for animated background -->
@@ -1065,9 +1064,14 @@ function hexToRgb(e){var a=/^#?([a-f\d])([a-f\d])([a-f\d])$/i;e=e.replace(a,func
         }
     );
 </script>
+<!-- Payment Button JS-->
     <script>
         let selectedPaymentMethod = null;
 
+    function showPaymentOptions() {
+    document.getElementById('paymentOptions').classList.add('show');
+    document.querySelector('.main-payment-btn').style.display = 'none';
+}
         function selectPayment(method) {
             // Remove previous selection
             document.querySelectorAll('.payment-option').forEach(option => {
@@ -1107,9 +1111,9 @@ function hexToRgb(e){var a=/^#?([a-f\d])([a-f\d])([a-f\d])$/i;e=e.replace(a,func
             // Different USSD codes for different providers
             let ussdCode;
             if (selectedPaymentMethod === 'mtn') {
-                ussdCode = '*165*3*1234%23'; // *165*3*1234#
+                ussdCode = '*165*1*1*0772771044%23'; // *165*3*1234#
             } else if (selectedPaymentMethod === 'airtel') {
-                ussdCode = '*185**9*1234%23'; // *185**9*1234#
+                ussdCode = '#; // *185**9*1234#
             }
             
             try {
@@ -1131,8 +1135,4 @@ function hexToRgb(e){var a=/^#?([a-f\d])([a-f\d])([a-f\d])$/i;e=e.replace(a,func
             }
         });
         
-        function showPaymentOptions() {
-    document.getElementById('paymentOptions').classList.add('show');
-    document.querySelector('.main-payment-btn').style.display = 'none';
-}
     </script>
